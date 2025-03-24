@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        /* Modal background */
+        .modal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        /* Modal content */
+        .modal-content {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        .modal button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <h2>Thank you!</h2>
+            <p>Our team will contact you very soon.</p>
+            <button id="closeModalBtn">Okay</button>
+        </div>
+    </div>
+
+    <script>
+        // Close the modal when the "Okay" button is clicked
+        document.getElementById('closeModalBtn').addEventListener('click', function() {
+            window.location.href = '/'; // Redirect to the home page after closing
+        });
+    </script>
+
+</body>
+</html>

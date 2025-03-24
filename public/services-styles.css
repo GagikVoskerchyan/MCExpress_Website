@@ -1,0 +1,132 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f8fc;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.services-hero {
+    height: 250px; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    background-color: #f7f8fc; /* Light background color */
+    text-align: center;
+    padding: 20px;
+}
+
+.services-hero h1 {
+    font-size: 4rem; /* Increased font size for the title */
+    margin-bottom: 10px;
+}
+
+.services-hero p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+}
+
+/* Services Section */
+.services-list {
+    margin-top: 40px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    background-color: white; /* White background for rectangular sections */
+    border-radius: 10px; /* Slight rounding of corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.image-container {
+    flex: 1;
+    min-width: 250px; /* Adjust to make images smaller */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text-container {
+    flex: 1;
+    min-width: 250px;
+    text-align: center; /* Centering the text */
+}
+
+.text-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.text-container p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-hero {
+        height: 250px;
+    }
+
+    .services-hero h1 {
+        font-size: 2rem;
+    }
+
+    .services-hero p {
+        font-size: 1rem;
+    }
+
+    .service-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-container {
+        width: 100%;
+        max-width: 400px; /* Keeps images smaller */
+    }
+
+    .text-container {
+        width: 100%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-hero {
+        height: 250px;
+    }
+
+    .services-hero h1 {
+        font-size: 2rem;
+    }
+
+    .services-hero p {
+        font-size: 1rem;
+    }
+
+    .service-item {
+        flex-direction: column;
+    }
+}

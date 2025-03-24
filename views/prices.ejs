@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Prices</title>
+    <link rel="stylesheet" href="/global-styles.css">
+    <link rel="stylesheet" href="/prices-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="container">
+        <!-- Main Section -->
+        <section class="main-section">
+            <h1>Here Are Our Moving Rates</h1>
+            <p class="description">
+                The prices are 100% accurate for reglar period of moving
+            </p>
+        </section>
+
+        <!-- Pricing Grid Section -->
+        <section class="pricing-grid">
+            <!-- Moving with 2 Movers -->
+            <div class="pricing-section">
+                <h2>Moving with 2 Movers</h2>
+                <p>Price: $105</p> <!-- Replace with actual price -->
+                <ul class="details">
+                    <li>20-inch truck</li>
+                    <li>1 to 2-bedroom moves</li>
+                    <li>2 hours of moving</li>
+                    <li>Additional charges for extra hours</li>
+                </ul>
+                <a href="/get-quote" class="get-quote-btn">Get a Quote</a>
+            </div>
+
+            <!-- Moving with 3 Movers -->
+            <div class="pricing-section">
+                <h2>Moving with 3 Movers</h2>
+                <p>Price: $125</p> <!-- Replace with actual price -->
+                <ul class="details">
+                    <li>20-inch truck</li>
+                    <li>3 to 4-bedroom moves</li>
+                    <li>3 hours of moving</li>
+                    <li>Additional charges for extra hours</li>
+                </ul>
+                <a href="/get-quote" class="get-quote-btn">Get a Quote</a>
+            </div>
+        </section>
+    </div>
+       <!-- New Section for Date-Specific Prices -->
+       <section class="date-specific-prices">
+        <p class="alert-text">
+            <span style="color: red;">The prices may differ depending on the moving date.</span>
+        </p>
+        <button id="show-prices-btn" class="show-prices-btn">
+            Click to see specific prices for date periods
+        </button>
+    </section>
+</div>
+
+<!-- Pop-up Modal -->
+<div id="price-modal" class="modal">
+    <div class="modal-content">
+        <h2>Prices for Specific Date Periods</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <h3>Jan 1 - Mar 31</h3>
+                <p>2 Movers: $85</p>
+                <p>3 Movers: $105</p>
+            </div>
+            <div class="grid-item">
+                <h3>Apr 1 - June 15</h3>
+                <p>2 Movers: $90</p>
+                <p>3 Movers: $115</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jun 16 - Jun 19</h3>
+                <p>2 Movers: $95</p>
+                <p>3 Movers: $140</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jun 20 - Jun 22</h3>
+                <p>2 Movers: $100</p>
+                <p>3 Movers: $145</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jun 23 - Jun 26</h3>
+                <p>2 Movers: $115</p>
+                <p>3 Movers: $160</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jun 27</h3>
+                <p>2 Movers: $120</p>
+                <p>3 Movers: $160</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jun 28</h3>
+                <p>2 Movers: $125</p>
+                <p>3 Movers: $160</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jun 29</h3>
+                <p>2 Movers: $130</p>
+                <p>3 Movers: $195</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jun 30</h3>
+                <p>2 Movers: $150</p>
+                <p>3 Movers: $195</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jul 1</h3>
+                <p>2 Movers: $160</p>
+                <p>3 Movers: $220</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jul 2</h3>
+                <p>2 Movers: $115</p>
+                <p>3 Movers: $155</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jul 3</h3>
+                <p>2 Movers: $95</p>
+                <p>3 Movers: $120</p>
+            </div>
+            <div class="grid-item">
+                <h3>Jul 4 - Jul 31</h3>
+                <p>2 Movers: $90</p>
+                <p>3 Movers: $115</p>
+            </div>
+            <div class="grid-item">
+                <h3>Aug 1 - Dec 31</h3>
+                <p>2 Movers: $85</p>
+                <p>3 Movers: $105</p>
+            </div>
+            <!-- Add more grid items as needed -->
+        </div>
+        <button id="close-modal-btn" class="close-btn">Okay</button>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
+
+<!-- Include JavaScript -->
+<script>
+    // JavaScript for modal functionality
+    const modal = document.getElementById('price-modal');
+    const showPricesBtn = document.getElementById('show-prices-btn');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    showPricesBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Disable page scroll
+});
+
+closeModalBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Enable page scroll
+});
+</script>
+
+<script>
+    function toggleMenu() {
+        const nav = document.querySelector('.nav-left');
+        nav.classList.toggle('mobile-hidden');
+    }
+</script>
+
+
+<script> function toggleMenu() {
+    const nav = document.querySelector('.nav-left');
+    nav.classList.toggle('expanded');
+}</script>
+
+</body>
+</html>

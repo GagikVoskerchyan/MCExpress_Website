@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Move</title>
+    <link rel="stylesheet" href="/get-quote-styles.css">
+    <link rel="stylesheet" href="/global-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <main>
+        <section class="quote-section">
+            <div class="quote-container">
+                <h1>Schedule Your Move</h1>
+                <p>Tell us more about your moving needs</p>
+
+                <form action="/submit-quote" method="POST">
+                    <div class="form-grid">
+                        <!-- Left Side -->
+                        <div class="form-left">
+                            <input type="text" name="name" placeholder="Name" required>
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="date" name="estimated_date" placeholder="Estimated Moving Date" required>
+                        </div>
+                
+                        <!-- Right Side -->
+                        <div class="form-right">
+                            <input type="text" name="departing_address" placeholder="Departing Address" required>
+                            <input type="text" name="destination_address" placeholder="Destination Address" required>
+                            <select name="type_of_house" required>
+                                <option value="" disabled selected>Type of House</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="condo">Condo</option>
+                                <option value="house">House</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <input type="text" name="property_size" placeholder="Size of Property (e.g., 2BHK, 3BHK)" required>
+                        </div>
+                    </div>
+                
+                    <!-- Extra Details Section -->
+                    <div class="form-full">
+                        <textarea name="extra_details" placeholder="Additional Details (e.g., special instructions, fragile items, etc.)" rows="5"></textarea>
+                    </div>
+                
+                    <!-- Submit Button -->
+                    <div class="form-submit">
+                        <button type="submit" class="cta-button">Get a Quote</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <%- include('partials/footer') %>
+
+</body>
+</html>

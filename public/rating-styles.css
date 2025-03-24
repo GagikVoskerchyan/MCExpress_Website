@@ -1,0 +1,68 @@
+/* Rating Overview */
+.rating-overview {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.rating-overview h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.rating-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.rating-item {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.rating-item strong {
+    display: block;
+    font-size: 1.2em;
+}
+
+.user-feedback {
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.feedback-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feedback-item {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%; /* 3 items per row */
+}
+
+.feedback-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.feedback-item p {
+    margin-bottom: 10px;
+}
+
+.feedback-item .rating, .feedback-item .date {
+    font-size: 0.9em;
+    color: #666;
+}

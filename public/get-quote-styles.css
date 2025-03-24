@@ -1,0 +1,126 @@
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    height: 100%; /* Ensures the body takes the full height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Main Content Area with Background */
+main {
+    min-height: calc(100vh - 60px); /* Adjust 60px to match your header+footer height */
+    background: url('/img/schedule_page.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Adjust as needed for spacing */
+    box-sizing: border-box; /* Includes padding in height calculation */
+}
+
+/* Quote Section */
+.quote-section {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
+    padding: 50px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Typography Adjustments */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Form Styles */
+.form-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.form-left, .form-right {
+    flex: 1 1 48%; /* Flexible sizing for smaller screens */
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+/* Submit Button */
+.cta-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+
+/* Modal background */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.modal button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #45a049;
+}

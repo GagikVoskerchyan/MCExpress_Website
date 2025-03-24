@@ -1,0 +1,215 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+/* Top Header Styles */
+.top-header {
+    background-color: white; /* White background */
+    color: #007BFF; /* Blue text */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 0.9em;
+}
+
+/* Links in the Top Header */
+.top-header a {
+    color: #007BFF; /* Blue text for links */
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.top-header a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Text inside the Top Header */
+.top-header-left span {
+    margin-right: 10px;
+    color: #007BFF; /* Ensures blue text */
+}
+
+/* Quote Button (Top Header) */
+.quote-button {
+    background-color: #ffffff; /* Blue background */
+    color: white; /* White text */
+    padding: 8px 15px; /* Add padding for the oval shape */
+    border: 2px solid rgb(0, 0, 0); /* Thin yellow border */
+    border-radius: 40px; /* Oval shape */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    font-size: 1em; /* Ensure proper text size */
+    line-height: 1.2; /* Ensure text is properly aligned vertically */
+    display: inline-block; /* Ensure it behaves like a button */
+}
+
+
+/* Navbar Styles 554f4f 58b5eb */
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #5db7eb;
+    padding: 10px 20px;
+    height: 90px;
+    position: relative;
+}
+
+.logo-container {
+    flex-shrink: 0;
+    margin-right: auto;
+}
+
+.logo {
+    height: 80px;
+    object-fit: contain;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-left li {
+    margin: 0 15px;
+}
+
+.nav-left li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.nav-left li a:hover {
+    color: #007BFF;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none; /* Hide by default */
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show on screens smaller than 768px */
+    }
+
+    .nav-left {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background-color: #5db7eb;
+        z-index: 10;
+        padding: 0;
+        text-align: center;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+    }
+
+    .nav-left.expanded {
+        display: flex;
+        max-height: 300px;
+        opacity: 1;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 0px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links, .footer-contact {
+    flex: 1;
+}
+
+.footer-links h3, .footer-contact h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.footer-links ul, .footer-contact ul {
+    list-style: none;
+}
+
+.footer-links ul li, .footer-contact ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a, .footer-contact ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover, .footer-contact ul li a:hover {
+    color: #007BFF;
+}
+
+footer p {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #007BFF;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links, .footer-contact {
+        margin-bottom: 20px;
+    }
+}

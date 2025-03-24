@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - MCExpress</title>
+    <link rel="stylesheet" href="/global-styles.css">
+    <link rel="stylesheet" href="/services-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <main class="services-container">
+        <!-- Hero Section -->
+        <section class="services-hero">
+            <h1>Our Services</h1>
+            <p>Discover the wide range of moving and packing services we offer to make your relocation seamless and stress-free.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-list">
+            <!-- Residential Moving -->
+            <div class="service-item">
+                <div class="image-container">
+                    <img src="/img/services-1.jpeg" alt="Residential Moving">
+                </div>
+                <div class="text-container">
+                    <h2>Residential Moving</h2>
+                    <p>
+                        We specialize in moving homes of all sizes, ensuring your furniture, appliances, and personal items are handled with care. 
+                        Let us make your next move hassle-free. Whether it's a small apartment or a large family home, our team provides personalized services to meet your needs.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Industrial Moving -->
+            <div class="service-item">
+                <div class="image-container">
+                    <img src="/img/services-2.jpeg" alt="Industrial Moving">
+                </div>
+                <div class="text-container">
+                    <h2>Industrial Moving</h2>
+                    <p>
+                        Our team is equipped to handle large-scale moves for industrial spaces, including warehouses, factories, and machinery relocation. 
+                        We ensure minimal downtime for your operations. With years of experience, we move complex machinery and industrial equipment with precision and care.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Local and Long-Distance Moving -->
+            <div class="service-item">
+                <div class="image-container">
+                    <img src="/img/services-3.jpeg" alt="Local and Long-Distance Moving">
+                </div>
+                <div class="text-container">
+                    <h2>Local & Long-Distance Moving</h2>
+                    <p>
+                        Whether you're moving across town or across the country, we provide reliable transportation and expert handling to get your belongings to their destination safely. Our team ensures a seamless move, no matter the distance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Packing and Assembling -->
+            <div class="service-item">
+                <div class="image-container">
+                    <img src="/img/services-4.jpeg" alt="Packing and Assembling">
+                </div>
+                <div class="text-container">
+                    <h2>Packing</h2>
+                    <p>
+                        From packing fragile items to assembling furniture, we offer comprehensive services to ensure every aspect of your move is covered. Our packing materials are designed to protect your items throughout the move.
+                    </p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="image-container">
+                    <img src="/img/services-5.jpeg" alt="Assembling">
+                </div>
+                <div class="text-container">
+                    <h2>Assembling</h2>
+                    <p>
+                        From packing fragile items to assembling furniture, we offer comprehensive services to ensure every aspect of your move is covered. Let us take care of the heavy lifting and assembling to make your space move-in ready.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    
+    <script> function toggleMenu() {
+        const nav = document.querySelector('.nav-left');
+        nav.classList.toggle('expanded');
+    }</script>
+    
+</body>
+</html>

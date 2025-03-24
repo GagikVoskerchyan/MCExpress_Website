@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MCExpress</title>
+    <link rel="stylesheet" href="/global-styles.css">
+    <link rel="stylesheet" href="/home-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <main>
+    
+        <section class="hero-section">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Welcome to MCExpress</h1>
+                    <h3>Your Trusted Partner in Moving</h3>
+                    <p>At MCExpress, we ensure a smooth and stress-free relocation experience. Whether you're moving locally or long-distance, we've got you covered.</p>
+                    <a href="/get-quote" class="hero-btn">Get a Quote</a>
+                </div>
+            </div>
+        </section>
+
+    <section class="services-section">
+        <div class="services-container">
+            <div class="service-item">
+                <i class="fas fa-home"></i>
+                <h3>House Moving</h3>
+                <p>Reliable and efficient house moving services tailored to your needs.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-briefcase"></i>
+                <h3>Office Moving</h3>
+                <p>Seamless office relocation services to minimize downtime.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Local Moving</h3>
+                <p>Convenient local moving solutions within your city.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-road"></i>
+                <h3>Long Distance Moving</h3>
+                <p>Professional moving services for long-distance relocations.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-truck"></i>
+                <h3>Specialized Services</h3>
+                <p>Custom moving solutions for unique and specialized requirements.</p>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script> function toggleMenu() {
+        const nav = document.querySelector('.nav-left');
+        nav.classList.toggle('expanded');
+    }</script>
+    
+</body>
+</html>

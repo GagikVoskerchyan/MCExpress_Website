@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to MCExpress</title>
+    <link rel="stylesheet" href="/global-styles.css">
+    <link rel="stylesheet" href="/rating-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main>
+    <section class="rating-overview">
+        <div>
+        <h1>
+            Average Rating:
+            <% if (typeof averageRating !== 'undefined' && averageRating > 0) { %>
+                <%= parseFloat(averageRating).toFixed(2) %> ⭐
+            <% } else { %>
+                No ratings yet
+            <% } %>
+        </h1>
+    </div>
+        <div class="rating-summary">
+            <h1>Rating Summary</h1>
+            <div class="rating-items">
+                <% [5, 4, 3, 2, 1].forEach(star => { %>
+                    <div class="rating-item">
+                        <%= star %> Stars: <%= ratingCounts[star] || 0 %> reviews
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section class="user-feedback">
+        <h2>Recent Feedback</h2>
+        <div class="feedback-list">
+            <% if (feedbacks && feedbacks.length > 0) { %>
+                <% feedbacks.forEach(feedback => { %>
+                    <div class="feedback-item">
+                        <h3><%= feedback.name || 'Anonymous' %></h3>
+                        <p><%= feedback.comments %></p>
+                        <span class="rating">Rating: <%= feedback.rating %> ⭐</span>
+                        <span class="date"><%= new Date(feedback.date).toLocaleDateString() %></span>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No feedbacks available.</p>
+            <% } %>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+</body>
+</html>

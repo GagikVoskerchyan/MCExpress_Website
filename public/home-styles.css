@@ -1,0 +1,136 @@
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    background-image: url('/img/home_page_1.jpeg'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    height: 600px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align content to the right */
+    padding: 0 20px;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.6); /* Transparent background */
+    border-radius: 10px;
+    padding: 30px 40px;
+    color: white;
+    max-width: 450px; /* Limit the width of the transparent background */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align text to the left */
+    justify-content: center; /* Center everything vertically */
+    margin-right: 50px; /* Add spacing from the right edge */
+    text-align: left; /* Left-align the text content */
+}
+
+.hero-content h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    width: 100%; /* Ensure it spans full width */
+}
+
+.hero-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    width: 100%; /* Ensure it spans full width */
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    width: 100%; /* Ensure it spans full width */
+}
+
+.hero-content .hero-btn {
+    align-self: center; /* Center the button */
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content .hero-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        justify-content: center; /* Center content on smaller screens */
+    }
+
+    .hero-overlay {
+        margin-right: 0; /* Remove margin on smaller screens */
+        text-align: center; /* Center text for smaller devices */
+        align-items: center; /* Center-align items */
+    }
+
+    .hero-content .hero-btn {
+        margin-top: 20px; /* Add spacing above the button */
+    }
+}
+/* Services section*/
+.services-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.service-item {
+    flex: 1 1 calc(20% - 40px); /* Five items in a row, responsive */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-item i {
+    font-size: 40px;
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .service-item {
+        flex: 1 1 calc(50% - 40px); /* Two items in a row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-item {
+        flex: 1 1 100%; /* One item per row on very small screens */
+    }
+}
