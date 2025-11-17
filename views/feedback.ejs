@@ -33,6 +33,11 @@
     
             <button type="submit" class="submit-btn">Submit Feedback</button>
         </form>
+
+        <!-- Thank you message (hidden by default) -->
+        <div id="feedback-message" class="feedback-message hidden">
+            Thank you for your feedback!
+        </div>
     </main>
     
     <script>
@@ -50,8 +55,17 @@
                 });
     
                 if (response.ok) {
-                    alert('Thank you for your feedback! You will now be redirected to the home page.');
-                    window.location.href = '/';
+                    // Show thank-you message
+                    const msg = document.getElementById('feedback-message');
+                    msg.classList.remove('hidden');
+
+                    // Clear the form
+                    this.reset();
+
+                    // Redirect after a short delay
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 2500);
                 } else {
                     alert('There was an error submitting your feedback. Please try again.');
                 }
@@ -63,5 +77,15 @@
     </script>
 
     <%- include('partials/footer') %>
+
+    <!-- If toggleMenu isn't already in header partial, keep this. 
+         If you moved it into header.ejs, you can delete this block. -->
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-left');
+            if (!nav) return;
+            nav.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>

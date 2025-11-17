@@ -38,13 +38,13 @@
                                 <option value="house">House</option>
                                 <option value="other">Other</option>
                             </select>
-                            <input type="text" name="property_size" placeholder="Size of Property (e.g., 2BHK, 3BHK)" required>
+                            <input type="text" name="property_size" placeholder="Size of Property" required>
                         </div>
                     </div>
                 
                     <!-- Extra Details Section -->
                     <div class="form-full">
-                        <textarea name="extra_details" placeholder="Additional Details (e.g., special instructions, fragile items, etc.)" rows="5"></textarea>
+                        <textarea name="extra_details" placeholder="Additional Details" rows="5"></textarea>
                     </div>
                 
                     <!-- Submit Button -->
@@ -58,5 +58,10 @@
     
     <%- include('partials/footer') %>
 
+        <script> function toggleMenu() {
+        const nav = document.querySelector('.nav-left');
+        nav.classList.toggle('expanded');
+    }</script>
+    
 </body>
 </html>

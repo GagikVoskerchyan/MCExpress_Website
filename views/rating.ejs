@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to MCExpress</title>
+    <title>MCExpress Ratings</title>
     <link rel="stylesheet" href="/global-styles.css">
     <link rel="stylesheet" href="/rating-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -12,49 +11,130 @@
 <body>
 <%- include('partials/header') %>
 
-<main>
+<main class="rating-page">
     <section class="rating-overview">
-        <div>
-        <h1>
-            Average Rating:
-            <% if (typeof averageRating !== 'undefined' && averageRating > 0) { %>
-                <%= parseFloat(averageRating).toFixed(2) %> ⭐
-            <% } else { %>
-                No ratings yet
+        <div class="avg-container">
+            <h1>Average Rating</h1>
+            <p class="avg-score">
+                <% if (typeof averageRating !== 'undefined' && averageRating > 0) { %>
+                    <%= parseFloat(averageRating).toFixed(2) %>
+                    <span class="avg-star">⭐</span>
+                <% } else { %>
+                    <span class="no-rating">No ratings yet</span>
+                <% } %>
+            </p>
+            <% if (feedbacks && feedbacks.length > 0) { %>
+                <p class="total-reviews"><%= feedbacks.length %> recent reviews</p>
             <% } %>
-        </h1>
-    </div>
-        <div class="rating-summary">
-            <h1>Rating Summary</h1>
-            <div class="rating-items">
-                <% [5, 4, 3, 2, 1].forEach(star => { %>
-                    <div class="rating-item">
-                        <%= star %> Stars: <%= ratingCounts[star] || 0 %> reviews
-                    </div>
-                <% }); %>
-            </div>
+        </div>
+
+        <div class="summary-container">
+            <h2>Rating Summary</h2>
+
+            <% 
+                const counts = ratingCounts || {};
+                const maxCount = Math.max(
+                    counts[1] || 0,
+                    counts[2] || 0,
+                    counts[3] || 0,
+                    counts[4] || 0,
+                    counts[5] || 0
+                ) || 1;
+            %>
+
+                <div class="rating-summary-card">
+                    <% [5, 4, 3, 2, 1].forEach(function (star) {
+                        const count = counts[star] || 0;
+                        const width = (count / maxCount) * 100;
+                    %>
+                        <div class="rating-row">
+                            <div class="star-label">
+                                <%= star %> star<%= star > 1 ? 's' : '' %>
+                            </div>
+
+                            <div class="bar-wrapper">
+                                <div class="bar-fill" data-width="<%= width %>"></div>
+                            </div>
+
+                            <div class="review-count"><%= count %></div>
+                        </div>
+                    <% }); %>
+                </div>
         </div>
     </section>
 
-    <section class="user-feedback">
-        <h2>Recent Feedback</h2>
-        <div class="feedback-list">
-            <% if (feedbacks && feedbacks.length > 0) { %>
-                <% feedbacks.forEach(feedback => { %>
-                    <div class="feedback-item">
-                        <h3><%= feedback.name || 'Anonymous' %></h3>
-                        <p><%= feedback.comments %></p>
-                        <span class="rating">Rating: <%= feedback.rating %> ⭐</span>
-                        <span class="date"><%= new Date(feedback.date).toLocaleDateString() %></span>
+    <section class="recent-reviews">
+        <h2>Recent Reviews</h2>
+
+        <% if (feedbacks && feedbacks.length > 0) { %>
+            <div class="carousel">
+                <button class="carousel-btn prev" id="prevReview">&lsaquo;</button>
+
+                <div class="carousel-window">
+                    <div class="carousel-track">
+                        <% feedbacks.forEach(function(feedback) { %>
+                            <div class="review-card">
+                                <div class="review-card-header">
+                                    <div>
+                                        <div class="review-name"><%= feedback.name || 'Anonymous' %></div>
+                                        <div class="review-rating">
+                                            <% for (let i = 0; i < feedback.rating; i++) { %>⭐<% } %>
+                                        </div>
+                                    </div>
+                                    <div class="review-date">
+                                        <%= feedback.date ? new Date(feedback.date).toLocaleDateString() : '' %>
+                                    </div>
+                                </div>
+                                <p class="review-text"><%= feedback.comments %></p>
+                            </div>
+                        <% }); %>
                     </div>
-                <% }) %>
-            <% } else { %>
-                <p>No feedbacks available.</p>
-            <% } %>
-        </div>
+                </div>
+
+                <button class="carousel-btn next" id="nextReview">&rsaquo;</button>
+            </div>
+        <% } else { %>
+            <p>No feedbacks available.</p>
+        <% } %>
     </section>
 </main>
 
 <%- include('partials/footer') %>
+
+<script>
+    // Simple carousel logic
+    (function () {
+        const track = document.querySelector('.carousel-track');
+        const prevBtn = document.getElementById('prevReview');
+        const nextBtn = document.getElementById('nextReview');
+
+        if (!track || !prevBtn || !nextBtn) return;
+
+        const cards = Array.from(track.children);
+        if (!cards.length) return;
+
+        let index = 0;
+
+        function updateCarousel() {
+            track.style.transform = 'translateX(' + (-index * 100) + '%)';
+        }
+
+        prevBtn.addEventListener('click', function () {
+            index = (index - 1 + cards.length) % cards.length;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', function () {
+            index = (index + 1) % cards.length;
+            updateCarousel();
+        });
+    })();
+</script>
+
+    <script> function toggleMenu() {
+        const nav = document.querySelector('.nav-left');
+        nav.classList.toggle('expanded');
+    }</script>
+    
 </body>
 </html>

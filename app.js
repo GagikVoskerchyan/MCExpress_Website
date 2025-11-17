@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views'); // Set the views directory
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://MCexpressDB:MC2024@clustermcexpress.jmr6y.mongodb.net/MCexpressDB?retryWrites=true&w=majority&appName=ClusterMCExpress')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch((err) => console.error('Error connecting to MongoDB Atlas:', err));
 
@@ -71,34 +71,25 @@ app.get('/services', (req, res) => {
 
 app.get('/rating', async (req, res) => {
     try {
-        // Fetch all feedbacks from the database
         const feedbacks = await Feedback.find({});
-        
-        // Initialize rating counts for all ratings from 1 to 5
+
         const ratingCounts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-        
-        // Calculate the total ratings and update the counts
+
         const totalRatings = feedbacks.reduce((sum, feedback) => {
-            ratingCounts[feedback.rating]++; // Increment count for the given rating
-            return sum + feedback.rating;    // Calculate sum of ratings
+            ratingCounts[feedback.rating]++;
+            return sum + feedback.rating;
         }, 0);
-        
-        // Calculate the average rating
+
         const averageRating = feedbacks.length > 0 ? totalRatings / feedbacks.length : 0;
-        
-        // Get the 6 most recent feedbacks (sorted by date)
-        const recentFeedbacks = feedbacks.sort((a, b) => b.date - a.date).slice(0, 6);
-        
-        // Log data for debugging
-        console.log('averageRating:', averageRating);
-        console.log('Rating Counts:', ratingCounts);
-        console.log('Recent Feedbacks:', recentFeedbacks);
-        
-        // Render the page with the calculated data
-        res.render('rating', { 
-            averageRating, 
-            ratingCounts, 
-            feedbacks: recentFeedbacks 
+
+        const recentFeedbacks = feedbacks
+            .sort((a, b) => b.date - a.date)
+            .slice(0, 20); // 👈 20 most recent
+
+        res.render('rating', {
+            averageRating,
+            ratingCounts,
+            feedbacks: recentFeedbacks
         });
     } catch (err) {
         console.error('Error fetching feedback:', err);
@@ -167,7 +158,7 @@ const transporter = nodemailer.createTransport({
 const sendQuoteEmail = (name, phone, email, estimated_date, departing_address, destination_address, type_of_house, property_size, extra_details) => {
     const mailOptions = {
         from: process.env.EMAIL, // Sender address
-        to: 'gagikvoski@gmail.com', // Replace with the email address where you want to receive the quote
+        to: 'Mcexpress@mail.com', // Replace with the email address where you want to receive the quote
         subject: 'New Quote Submitted',
         text: `
             A new quote has been submitted:

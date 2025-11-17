@@ -76,3 +76,19 @@ body {
 .submit-btn:hover {
     background-color: #007BFF;
 }
+
+.feedback-message {
+    max-width: 600px;
+    margin: 16px auto 0;
+    padding: 12px 16px;
+    background: #e6fffa;
+    border-left: 4px solid #2c7a7b;
+    border-radius: 8px;
+    color: #234e52;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.feedback-message.hidden {
+    display: none;
+}
